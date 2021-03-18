@@ -108,7 +108,7 @@ public class TextToSpeech: CAPPlugin, AVSpeechSynthesizerDelegate {
     @objc func isLanguageSupported(_ call: CAPPluginCall) {
         let lang = call.getString("lang") ?? ""
         let isLanguageSupported = supportedLangs.contains(lang)
-        call.resolve([
+        call.success([
             "supported": isLanguageSupported
         ])
     }
