@@ -12,6 +12,7 @@ export interface TextToSpeechPlugin {
   openInstall(): Promise<void>;
   setPitchRate(options: { pitchRate: number }): Promise<void>;
   setSpeechRate(options: { speechRate: number }): Promise<void>;
+  isLanguageSupported(options: { lang: string }): Promise<{ supported: boolean }>;
 }
 
 export interface TTSOptions {

@@ -105,6 +105,14 @@ public class TextToSpeech: CAPPlugin, AVSpeechSynthesizerDelegate {
         ])
     }
 
+    @objc func isLanguageSupported(_ call: CAPPluginCall) {
+        let lang = call.getString("lang") ?? ""
+        let isLanguageSupported = supportedLangs.contains(lang)
+        call.resolve([
+            "supported": isLanguageSupported
+        ])
+    }
+
     // Adjust rate for a closer match to other platform.
     @objc func adjustRate(_ rate: Float) -> Float {
         let baseRate = AVSpeechUtteranceDefaultSpeechRate
